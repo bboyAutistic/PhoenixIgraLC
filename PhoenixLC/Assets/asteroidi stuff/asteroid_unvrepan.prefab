@@ -23,9 +23,8 @@ GameObject:
   - component: {fileID: 23501832756083504}
   - component: {fileID: 95399934617037024}
   - component: {fileID: 54731248382653030}
-  - component: {fileID: 114989466122241528}
   - component: {fileID: 135636128433678590}
-  - component: {fileID: 114283790628576784}
+  - component: {fileID: 114447534546017610}
   m_Layer: 0
   m_Name: asteroid_unvrepan
   m_TagString: Untagged
@@ -121,7 +120,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114283790628576784
+--- !u!114 &114447534546017610
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -129,22 +128,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1156274708955996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50000a8bc819bb542a097e13c5794562, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosion: {fileID: 1915471093777670, guid: 69bfd3013957ace4d92c14c3b022b90f, type: 2}
-  rb: {fileID: 54731248382653030}
-  laserHitModifier: 100
-  particleDuration: 1.5
---- !u!114 &114989466122241528
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1156274708955996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 104e49eef8c7864428f534204f063ec5, type: 3}
+  m_Script: {fileID: 11500000, guid: 531918cda2edcb84e85f3453e83c69f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 5
