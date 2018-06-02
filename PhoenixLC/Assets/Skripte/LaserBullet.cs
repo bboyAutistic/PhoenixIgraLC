@@ -12,4 +12,14 @@ public class LaserBullet : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+
+	void OnCollisionEnter(Collision other){
+		if (other.gameObject.tag == "Enemy") {
+			other.gameObject.GetComponent<EnemyHealth> ().TakeDamage (25);
+			Destroy (gameObject);
+		} else if (other.gameObject.tag == "Player") {
+			other.gameObject.GetComponent<PlayerHealth> ().TakeDamage (25);
+			Destroy (gameObject);
+		}
+	}
 }
