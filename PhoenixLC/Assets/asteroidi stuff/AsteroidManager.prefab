@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4763921772187688}
-  - component: {fileID: 114683406816308852}
+  - component: {fileID: 114456553193620020}
   m_Layer: 0
   m_Name: AsteroidManager
   m_TagString: Untagged
@@ -40,7 +40,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114683406816308852
+--- !u!114 &114456553193620020
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1189696330763864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eefe0077b1a6834798ce49fbab628e4, type: 3}
+  m_Script: {fileID: 11500000, guid: fd207be925cc55a498e51ce03f5a5eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfAsteroidsOnAnAxis: 5

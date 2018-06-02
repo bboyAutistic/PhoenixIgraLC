@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour {
 	public float shieldRegenTime = 2f;
 	public float shieldRegenAmount = 10f;
 	public GameObject deathExplosion;
+	public RectTransform healthBar;
+	public RectTransform shieldBar;
 
 	GameObject shield;
 	[SerializeField]
@@ -17,15 +19,19 @@ public class PlayerHealth : MonoBehaviour {
 	float currentHealth;
 	float currentShield;
 	bool isDead = false;
-	HealthUI healthUI;
+
+	float maxWidthHealth;
+	float maxWidthShield;
 
 	float shieldBeforeHit;
 
 	void Awake(){
-		healthUI = GameObject.Find ("Health&Shield").GetComponent<HealthUI> ();
 		shield = GameObject.Find("Shield");
 		//izbacuje neki error ali radi
 		//shield = transform.Find("Shield").gameObject;
+
+		maxWidthHealth = healthBar.rect.width;
+		maxWidthShield = shieldBar.rect.width;
 	}
 
 	void Start () {
@@ -40,11 +46,11 @@ public class PlayerHealth : MonoBehaviour {
 
 		if (currentShield < maxShield) {
 			currentShield += shieldRegenAmount;
-			healthUI.UpdateShieldBar (currentShield / maxShield);
+			UpdateShieldBar (currentShield / maxShield);
 		}
 		if (currentShield > maxShield) {
 			currentShield = maxShield;
-			healthUI.UpdateShieldBar (currentShield / maxShield);
+			UpdateShieldBar (currentShield / maxShield);
 		}
 
 	}
@@ -67,18 +73,18 @@ public class PlayerHealth : MonoBehaviour {
 				currentShield = 0;
 				dmg -= shieldBeforeHit;
 				currentHealth -= dmg;
-				healthUI.UpdateHealthBar (currentHealth / maxHealth);
+				UpdateHealthBar (currentHealth / maxHealth);
 
 			}
 
-			healthUI.UpdateShieldBar (currentShield / maxShield);
+			UpdateShieldBar (currentShield / maxShield);
 
 		} else {
 			currentHealth -= dmg;
 			if (currentHealth < 0)
 				currentHealth = 0;
 
-			healthUI.UpdateHealthBar (currentHealth / maxHealth);
+			UpdateHealthBar (currentHealth / maxHealth);
 		}
 
 		if (currentHealth <= 0 && !isDead) {
@@ -112,5 +118,13 @@ public class PlayerHealth : MonoBehaviour {
 		gameOverScreen.SetActive (true);
 		Cursor.visible = true;
 		Cursor.lockState = CursorLockMode.None;
+	}
+
+	public void UpdateHealthBar (float percent){
+		healthBar.sizeDelta = new Vector2 (maxWidthHealth * percent, 10f);
+	}
+
+	public void UpdateShieldBar(float percent){
+		shieldBar.sizeDelta = new Vector2 (maxWidthShield * percent, 10f);
 	}
 }

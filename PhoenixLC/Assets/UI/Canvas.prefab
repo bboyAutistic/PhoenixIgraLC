@@ -52,7 +52,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224610922326229044}
-  - component: {fileID: 114748457913654720}
   m_Layer: 5
   m_Name: BoostUI
   m_TagString: Untagged
@@ -155,7 +154,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224533453139641830}
-  - component: {fileID: 114836030735370982}
   m_Layer: 5
   m_Name: Health&Shield
   m_TagString: Untagged
@@ -408,18 +406,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
---- !u!114 &114748457913654720
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1082838918182756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4db7f9191078bb349a6194220af3ab5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boostBar: {fileID: 224504017610317604}
 --- !u!114 &114771422495276886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -441,19 +427,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114836030735370982
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1768033642892596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7193bd040eff5243b66326e74d6d378, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 224438962231713412}
-  shieldBar: {fileID: 224030417574983954}
 --- !u!114 &114846022463375298
 MonoBehaviour:
   m_ObjectHideFlags: 1

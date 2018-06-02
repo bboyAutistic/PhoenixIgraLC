@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour {
 	public float boostPercentage = 100f;
 	public float boostTime = 10f;
 
+	//boost
+	public RectTransform boostBar;
+	float maxHeight;
+
 	Rigidbody rb;
 
 	bool boost;
@@ -27,10 +31,10 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
 
 		rb = GetComponent<Rigidbody> ();
-		boostUI = GameObject.Find ("BoostUI").GetComponent<BoostUI> ();
 		originalSpeed = moveSpeed;
 		boostSpeed = moveSpeed * (1 + (boostPercentage / 100));
 		boostTimer = boostTime;
+		maxHeight = boostBar.rect.height;
 	}
 
 	void Update(){
@@ -47,7 +51,7 @@ public class PlayerMovement : MonoBehaviour {
 			if (boostTimer <= boostTime && !boost)
 				boostTimer += Time.deltaTime/2;
 		}
-		boostUI.updateBoostBar (boostTimer / boostTime);
+		updateBoostBar (boostTimer / boostTime);
 
 	}
 
@@ -78,5 +82,9 @@ public class PlayerMovement : MonoBehaviour {
 		transform.Rotate (-verticalRotation, 0f, 0f, Space.Self);
 		transform.Rotate (0f, horizontalRotation, 0f, Space.Self);
 		transform.Rotate (0f, 0f, -bankAngle, Space.Self);
+	}
+
+	public void updateBoostBar(float percent){
+		boostBar.sizeDelta = new Vector2 (15f, maxHeight * percent);
 	}
 }
