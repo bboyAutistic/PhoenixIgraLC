@@ -7,28 +7,20 @@ public class EnemyAttack : MonoBehaviour {
 	public Transform pointOfOrigin;
 	public GameObject laserBullet;
 	public float rateOfFire = 300f;
+	public float coneOfFire = 10f;
+
+	Transform target;
+	Vector3 lineToTarget;
 	float reloadTimer = 0f;
-
-    [SerializeField]
-    Transform target;
-
-    Laser laser;
-
-    Vector3 hitPosition;
-
-	void Awake(){
-		laser = GetComponentInChildren<Laser> ();
-	}
 
     void Update()
     {
 		reloadTimer += Time.deltaTime;
 
-        if (!FindTarget()) return;
-        //InFront();
-        //HaveLineOfSightRayCast();
-        if(InFront() && HaveLineOfSightRayCast())
-        {
+		if (!FindTarget ())
+			return;
+
+		if (CanHit ()) {
 			if (reloadTimer >= 60 / rateOfFire) {
 				reloadTimer = 0;
 				FireEnemyLaser ();
@@ -36,64 +28,35 @@ public class EnemyAttack : MonoBehaviour {
         }
     }
 
+	bool FindTarget()
+	{
+		GameObject temp = GameObject.FindWithTag ("Player");
+		if (temp == null)
+			return false;
 
+		target = temp.transform;
+		return true;
+	}
 
-	bool InFront()
-    {
-        Vector3 directionToTarget = transform.position - target.position;
-        float angle = Vector3.Angle(transform.forward, directionToTarget);
+	bool CanHit(){
+		lineToTarget = target.position - pointOfOrigin.position;
+		float angle = Vector3.Angle (pointOfOrigin.forward, lineToTarget);
 
-        if (Mathf.Abs(angle) > 120 && Mathf.Abs(angle) < 300)
-        {
-           // Debug.DrawLine(transform.position, target.position,Color.green);
-            return true;
-        }
-        //Debug.DrawLine(transform.position, target.position, Color.red);
-        return false;
-    }
-
-
-    bool HaveLineOfSightRayCast()
-    {
-        RaycastHit hit;
-
-        Vector3 direction = target.position - transform.position;
-        
-        if(Physics.Raycast(laser.transform.position,direction,out hit,laser.Distance()))
-        {
-            if (hit.transform.CompareTag("Player"))
-            {
-                Debug.DrawRay(laser.transform.position, direction, Color.green);
-                hitPosition = hit.transform.position;
-                return true;
-            }
-        }
-        return false;
-    }
-
-
-    void FireEnemyLaser()
-    {
-		/*
-        //Debug.Log("fire Laseeerrrrrrrr");
-		if (laser.getCanFire ()) {
-			laser.FireLaser(hitPosition,target);
+		RaycastHit hit;
+		if (angle < coneOfFire) {
+			Physics.Raycast (pointOfOrigin.position, lineToTarget, out hit);
+			if (hit.collider.tag == "Player") {
+				return true;
+			}
 		}
-		//laser.FireLaser();
-		*/
 
-			GameObject bullet = Instantiate (laserBullet, pointOfOrigin.transform.position, pointOfOrigin.transform.rotation, null);
-			Rigidbody rb = bullet.GetComponent<Rigidbody> ();
-			rb.AddForce (bullet.transform.forward * rb.mass * 300, ForceMode.Impulse);
+		return false;
+	}
 
-
-    }
-
-    bool FindTarget()
-    {
-        if (target == null)
-            target = GameObject.FindGameObjectWithTag("Player").transform;
-        if (target == null) return false;
-        return true;
-    }
+	void FireEnemyLaser()
+	{
+		GameObject bullet = Instantiate (laserBullet, pointOfOrigin.transform.position, pointOfOrigin.transform.rotation, null);
+		Rigidbody rb = bullet.GetComponent<Rigidbody> ();
+		rb.AddForce (lineToTarget.normalized * rb.mass * 300, ForceMode.Impulse);
+	}
 }

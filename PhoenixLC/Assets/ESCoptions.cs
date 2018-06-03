@@ -7,14 +7,14 @@ public class ESCoptions : MonoBehaviour {
     public GameObject pauseMenu;
 	
 	void Start () {
-        Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
     }
 	
 	
 	void Update () {
         if (Input.GetKey(KeyCode.Escape))
         {
-            Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.None;
             pauseMenu.SetActive(true);
             Time.timeScale = 0;
         }
@@ -23,7 +23,7 @@ public class ESCoptions : MonoBehaviour {
     public void Resume()
     {
         pauseMenu.SetActive(false);
-        Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
     }
 }

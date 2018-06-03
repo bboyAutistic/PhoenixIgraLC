@@ -26,7 +26,8 @@ public class EnemyMovment : MonoBehaviour {
 	{
 		Vector3 pos = target.position - transform.position;
 		Quaternion rotation = Quaternion.LookRotation(pos);
-		transform.rotation = Quaternion.Slerp(transform.rotation, rotation,  rotationalDamp*Time.deltaTime);
+		//transform.rotation = Quaternion.Slerp(transform.rotation, rotation,  rotationalDamp*Time.deltaTime);
+		transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationalDamp * Time.deltaTime);
 	}
 	void Move()
 	{
@@ -55,9 +56,11 @@ public class EnemyMovment : MonoBehaviour {
 
 	bool FindTarget()
 	{
-		if (target == null)
-			target = GameObject.FindGameObjectWithTag("Player").transform;
-		if (target == null) return false;
+		GameObject temp = GameObject.FindWithTag ("Player");
+		if (temp == null)
+			return false;
+
+		target = temp.transform;
 		return true;
 	}
 }

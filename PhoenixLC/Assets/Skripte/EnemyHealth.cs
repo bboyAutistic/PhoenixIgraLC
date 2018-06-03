@@ -21,7 +21,7 @@ public class EnemyHealth : MonoBehaviour {
 	}
 
 	void Death(){
-		//Instantiate (deathExplosion, transform.position, transform.rotation);
+		Instantiate (deathExplosion, transform.position, transform.rotation);
 		Destroy (this.gameObject);
 	}
 }
