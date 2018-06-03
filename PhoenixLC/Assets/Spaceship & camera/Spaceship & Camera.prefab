@@ -918,6 +918,11 @@ MonoBehaviour:
     type: 2}
   rateOfFire: 300
   pointOfOrigin: {fileID: 4475577032991260}
+  missile: {fileID: 1643808815834822, guid: de0e169fbc5e3044e8565a1a9835d805, type: 2}
+  lockOnRange: 300
+  missileReloadTime: 5
+  lockOnTime: 2
+  targetLockUI: {fileID: 0}
 --- !u!114 &114785793067142436
 MonoBehaviour:
   m_ObjectHideFlags: 1

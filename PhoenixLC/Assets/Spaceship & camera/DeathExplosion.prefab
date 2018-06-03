@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4487652773571022}
   - component: {fileID: 198004105203657984}
+  - component: {fileID: 114970779355657846}
   - component: {fileID: 199399560819336240}
-  - component: {fileID: 114471371352170268}
   m_Layer: 0
   m_Name: DeathExplosion
   m_TagString: Untagged
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114471371352170268
+--- !u!114 &114970779355657846
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -50,30 +50,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1977348621631130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f1a69e55ddd507469cc10244303bf64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 135
-    i1: 74
-    i2: 45
-    i3: 181
-    i4: 237
-    i5: 60
-    i6: 85
-    i7: 84
-    i8: 72
-    i9: 56
-    i10: 175
-    i11: 46
-    i12: 3
-    i13: 176
-    i14: 239
-    i15: 28
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!198 &198004105203657984
 ParticleSystem:
   m_ObjectHideFlags: 1
