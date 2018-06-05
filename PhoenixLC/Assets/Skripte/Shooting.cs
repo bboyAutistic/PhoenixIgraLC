@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,6 +32,11 @@ public class Shooting : MonoBehaviour
     //lock-on UI variables
     public RectTransform targetLockUI;
     Color targetLockUIColor;
+
+
+    //UI tekst za broj raketa
+    public TextMeshProUGUI brojRaketa;
+
 
     void Awake()
     {
@@ -81,7 +87,7 @@ public class Shooting : MonoBehaviour
             missileReloadTimer = 0f;
             Instantiate(missile, transform.position - transform.up, transform.rotation, null);
             missileAmount--;
-
+            brojRaketa.text = "X " + missileAmount;
             Debug.Log(missileAmount);
         }
     }
@@ -215,5 +221,6 @@ public class Shooting : MonoBehaviour
     {
         missileAmount++;
         Debug.Log(missileAmount);
+        brojRaketa.text = "X " + missileAmount;
     }
 }

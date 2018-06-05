@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 114492846341333464}
   - component: {fileID: 114822921828922982}
   - component: {fileID: 114849839638053794}
+  - component: {fileID: 54776317491603754}
   m_Layer: 0
   m_Name: BirdShip Prefab
   m_TagString: Enemy
@@ -131,7 +132,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1789904657178364}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.31, y: -1.9331, z: -8.143478}
+  m_LocalPosition: {x: 4.13, y: 6.1, z: -8.143478}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 4790109607822186}
@@ -209,6 +210,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1789904657178364}
   m_Mesh: {fileID: 4300000, guid: 813cec1c50a323747b69bb069ba83edf, type: 3}
+--- !u!54 &54776317491603754
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1789904657178364}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 3
+  m_AngularDrag: 5
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!64 &64593448751850000
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -657,5 +673,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 15
   m_Center: {x: 0, y: 0, z: 0}
