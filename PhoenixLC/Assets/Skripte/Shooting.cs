@@ -79,7 +79,7 @@ public class Shooting : MonoBehaviour
             missileReloadTimer = 0f;
             FireMissile();
             missileAmount--;
-
+            brojRaketa.text = "X " + missileAmount;
             Debug.Log(missileAmount);
         }
         else if (Input.GetKeyDown(KeyCode.Mouse1) && target == null && missileReloadTimer > missileReloadTime && missileAmount > 0)
