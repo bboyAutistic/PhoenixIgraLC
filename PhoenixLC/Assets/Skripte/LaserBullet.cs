@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LaserBullet : MonoBehaviour {
 
+    public float damage = 25f;
 	float lifetimeTimer = 0f;
 
 	void Update () {
@@ -15,10 +16,10 @@ public class LaserBullet : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other){
 		if (other.gameObject.tag == "Enemy") {
-			other.gameObject.GetComponent<EnemyHealth> ().TakeDamage (25);
+			other.gameObject.GetComponent<EnemyHealth> ().TakeDamage (damage);
 			Destroy (gameObject);
 		} else if (other.gameObject.tag == "Player") {
-			other.gameObject.GetComponent<PlayerHealth> ().TakeDamage (25);
+			other.gameObject.GetComponent<PlayerHealth> ().TakeDamage (damage);
 			Destroy (gameObject);
 		}
 	}

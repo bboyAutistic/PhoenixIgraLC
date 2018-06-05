@@ -114,6 +114,11 @@ public class PlayerHealth : MonoBehaviour {
 		return currentShield;
 	}
 
+    public float getHealth()
+    {
+        return currentHealth;
+    }
+
 	void GameOver (){
 		gameOverScreen.SetActive (true);
 		Cursor.visible = true;
@@ -127,4 +132,22 @@ public class PlayerHealth : MonoBehaviour {
 	public void UpdateShieldBar(float percent){
 		shieldBar.sizeDelta = new Vector2 (maxWidthShield * percent, 10f);
 	}
+
+    public void Repair(float amount)
+    {
+        currentHealth += amount;
+        if (currentHealth > maxHealth)
+            currentHealth = maxHealth;
+
+        UpdateHealthBar(currentHealth / maxHealth);
+    }
+
+    public void RecoverShield(float amount)
+    {
+        currentShield += amount;
+        if (currentShield > maxShield)
+            currentShield = maxShield;
+
+        UpdateShieldBar(currentShield / maxShield);
+    }
 }

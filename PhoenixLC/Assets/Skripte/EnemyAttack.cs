@@ -44,10 +44,15 @@ public class EnemyAttack : MonoBehaviour {
 
 		RaycastHit hit;
 		if (angle < coneOfFire) {
-			Physics.Raycast (pointOfOrigin.position, lineToTarget, out hit);
-			if (hit.collider.tag == "Player") {
-				return true;
-			}
+            if (Physics.Raycast(pointOfOrigin.position, lineToTarget, out hit, 1000, ~LayerMask.GetMask("LaserBullets", "Sudari")))
+            {
+                if (hit.collider.tag == "Player")
+                {
+                    return true;
+                }
+                else
+                    Debug.Log(hit.collider.name);
+            }
 		}
 
 		return false;
@@ -55,7 +60,7 @@ public class EnemyAttack : MonoBehaviour {
 
 	void FireEnemyLaser()
 	{
-		GameObject bullet = Instantiate (laserBullet, pointOfOrigin.transform.position, pointOfOrigin.transform.rotation, null);
+		GameObject bullet = Instantiate (laserBullet, pointOfOrigin.position, pointOfOrigin.rotation, null);
 		Rigidbody rb = bullet.GetComponent<Rigidbody> ();
 		rb.AddForce (lineToTarget.normalized * rb.mass * 300, ForceMode.Impulse);
 	}

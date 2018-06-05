@@ -20,6 +20,7 @@ public class Shooting : MonoBehaviour
     public float lockOnTime = 5f;
 
     //missile private variables
+    float missileAmount = 0f;
     GameObject target = null;
     int lockTarget = 0;
     float nearestTarget;
@@ -33,7 +34,6 @@ public class Shooting : MonoBehaviour
 
     void Awake()
     {
-        GetComponent<SphereCollider>().radius = lockOnRange;
         targetLockUIColor = targetLockUI.GetComponent<Image>().color;
     }
 
@@ -72,6 +72,17 @@ public class Shooting : MonoBehaviour
         {
             missileReloadTimer = 0f;
             FireMissile();
+            missileAmount--;
+
+            Debug.Log(missileAmount);
+        }
+        else if (Input.GetKeyDown(KeyCode.Mouse1) && target == null && missileReloadTimer > missileReloadTime && missileAmount > 0)
+        {
+            missileReloadTimer = 0f;
+            Instantiate(missile, transform.position - transform.up, transform.rotation, null);
+            missileAmount--;
+
+            Debug.Log(missileAmount);
         }
     }
 
@@ -89,62 +100,82 @@ public class Shooting : MonoBehaviour
     }
 
     //lock-on system
+    /*
     void OnTriggerStay(Collider other)
     {
         //gledaj samo za Enemy
         if (other.CompareTag("Enemy"))
         {
-            Vector3 direction = other.transform.position - transform.position;
-            float angle = Vector3.Angle(direction, transform.forward);
+            
+        }
 
-            //ako je unutar 30 stupnjeva
-            if (angle <= 30f)
+        //if target was found
+        if (target != null)
+        {
+            //if target left the area, reset target
+            if (Vector3.Angle(target.transform.position - transform.position, transform.forward) > 30f)
             {
-                RaycastHit hit;
-                if (Physics.Raycast(transform.position, direction, out hit, lockOnRange, LayerMask.NameToLayer("LaserBullets")))
-                {
-                    if (hit.collider.gameObject.CompareTag("Enemy"))
-                    {
+                ResetTarget();
+            }
+        }
+    }
+    */
 
-                        //when no target, set a target
-                        if (lockTarget == 0 || target == null)
+    public void LockOnSystem(Collider other)
+    {
+        if(missileAmount < 1)
+        {
+            ResetTarget();
+            return;
+        }
+        Vector3 direction = other.transform.position - transform.position;
+        float angle = Vector3.Angle(direction, transform.forward);
+
+        //ako je unutar 30 stupnjeva
+        if (angle <= 30f)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, direction, out hit, lockOnRange, LayerMask.NameToLayer("LaserBullets")))
+            {
+                if (hit.collider.gameObject.CompareTag("Enemy"))
+                {
+                    //when no target, set a target
+                    if (lockTarget == 0 || target == null)
+                    {
+                        lockTarget = hit.collider.gameObject.GetInstanceID();
+                        nearestTarget = hit.distance;
+                        lockTimer = 0f;
+                        target = hit.collider.gameObject;
+                    }
+
+                    //if same target, add to timer, update distance
+                    else if (lockTarget == hit.collider.gameObject.GetInstanceID())
+                    {
+                        lockTimer += Time.deltaTime;
+                        nearestTarget = hit.distance;
+                        if (target != hit.collider.gameObject)
                         {
-                            lockTarget = hit.collider.gameObject.GetInstanceID();
-                            nearestTarget = hit.distance;
-                            lockTimer = 0f;
                             target = hit.collider.gameObject;
                         }
-
-                        //if same target, add to timer, update distance
-                        else if (lockTarget == hit.collider.gameObject.GetInstanceID())
-                        {
-                            lockTimer += Time.deltaTime;
-                            nearestTarget = hit.distance;
-                            if (target != hit.collider.gameObject)
-                            {
-                                target = hit.collider.gameObject;
-                            }
-                        }
-
-                        //if new target is closer, change target
-                        else if (lockTarget != hit.collider.gameObject.GetInstanceID() && hit.distance < nearestTarget)
-                        {
-                            lockTimer = 0f;
-                            lockTarget = hit.collider.gameObject.GetInstanceID();
-                            nearestTarget = hit.distance;
-                        }
-
                     }
-                    //if no line of sight, reset target
-                    else
+
+                    //if new target is closer, change target
+                    else if (lockTarget != hit.collider.gameObject.GetInstanceID() && hit.distance < nearestTarget)
                     {
-                        ResetTarget();
+                        lockTimer = 0f;
+                        lockTarget = hit.collider.gameObject.GetInstanceID();
+                        nearestTarget = hit.distance;
                     }
+
+                }
+                //if no line of sight, reset target
+                else
+                {
+                    ResetTarget();
                 }
             }
         }
 
-        //if target was found
         if (target != null)
         {
             //if target left the area, reset target
@@ -178,5 +209,11 @@ public class Shooting : MonoBehaviour
         {
             targetLockUI.GetComponent<Image>().color = targetLockUIColor;
         }
+    }
+
+    public void AddMissile()
+    {
+        missileAmount++;
+        Debug.Log(missileAmount);
     }
 }

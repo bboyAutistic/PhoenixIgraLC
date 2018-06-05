@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldPowerUp : MonoBehaviour {
-    
+public class MissilePowerUp : MonoBehaviour {
+
     public float rotateSpeed = 10f;
 
     void Update()
@@ -15,11 +15,8 @@ public class ShieldPowerUp : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            if (other.GetComponent<PlayerHealth>().getShield() < other.GetComponent<PlayerHealth>().maxShield)
-            {
-                other.GetComponent<PlayerHealth>().RecoverShield(100);
-                Destroy(gameObject);
-            }
+            other.GetComponent<Shooting>().AddMissile();
+            Destroy(gameObject);
         }
     }
 
