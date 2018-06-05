@@ -118,7 +118,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-403016
+  m_Name: pb_Mesh-39182
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -2937,11 +2937,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 114492846341333464, guid: 6910fad2f629b0647a28e25b8be065f7,
-        type: 2}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 2028673546}
     - target: {fileID: 1789904657178364, guid: 6910fad2f629b0647a28e25b8be065f7, type: 2}
       propertyPath: m_Name
       value: BirdShip Prefab (1)
@@ -3043,6 +3038,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114456553193620020, guid: 38ba68d6362ddbd438d1b90a2cceedda,
+        type: 2}
+      propertyPath: asteroid
+      value: 
+      objectReference: {fileID: 1156274708955996, guid: 18b5c8ebaefd2524fb521055044ffaf3,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38ba68d6362ddbd438d1b90a2cceedda, type: 2}
   m_IsPrefabParent: 0
@@ -3707,11 +3708,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
-    - target: {fileID: 114492846341333464, guid: 6910fad2f629b0647a28e25b8be065f7,
-        type: 2}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 2028673546}
     - target: {fileID: 1789904657178364, guid: 6910fad2f629b0647a28e25b8be065f7, type: 2}
       propertyPath: m_Name
       value: BirdShip Prefab (2)
@@ -3852,11 +3848,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91ae4677d89b21d46b2757970b20a003, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &2028673546 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4211738164132690, guid: 2e8d9e6062e9eef40a5f074780d29d59,
-    type: 2}
-  m_PrefabInternal: {fileID: 1038781133}
 --- !u!1001 &2034582283
 Prefab:
   m_ObjectHideFlags: 0
@@ -4022,11 +4013,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114492846341333464, guid: 6910fad2f629b0647a28e25b8be065f7,
-        type: 2}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 2028673546}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6910fad2f629b0647a28e25b8be065f7, type: 2}
   m_IsPrefabParent: 0
