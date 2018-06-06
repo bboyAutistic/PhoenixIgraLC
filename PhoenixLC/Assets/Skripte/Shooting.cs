@@ -10,9 +10,12 @@ public class Shooting : MonoBehaviour
     public GameObject laserBullet;
     public float rateOfFire = 120f;
     public Transform pointOfOrigin;
+    public int laserLevel = 1;
+    public float laserSpeed = 300f;
 
     //laser private variables
     float reloadTimer = 0f;
+    
 
     //missile public variables
     public GameObject missile;
@@ -80,7 +83,6 @@ public class Shooting : MonoBehaviour
             FireMissile();
             missileAmount--;
             brojRaketa.text = "X " + missileAmount;
-            Debug.Log(missileAmount);
         }
         else if (Input.GetKeyDown(KeyCode.Mouse1) && target == null && missileReloadTimer > missileReloadTime && missileAmount > 0)
         {
@@ -88,15 +90,103 @@ public class Shooting : MonoBehaviour
             Instantiate(missile, transform.position - transform.up, transform.rotation, null);
             missileAmount--;
             brojRaketa.text = "X " + missileAmount;
-            Debug.Log(missileAmount);
         }
     }
 
     void FireLaser()
     {
-        GameObject bullet = Instantiate(laserBullet, pointOfOrigin.position, pointOfOrigin.rotation, null);
-        Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        rb.AddForce(bullet.transform.forward * rb.mass * 300, ForceMode.Impulse);
+        switch (laserLevel)
+        {
+            case 1:
+                {
+                    GameObject bullet = Instantiate(laserBullet, pointOfOrigin.position, pointOfOrigin.rotation, null);
+                    Rigidbody rb = bullet.GetComponent<Rigidbody>();
+                    rb.AddForce(bullet.transform.forward * rb.mass * laserSpeed, ForceMode.Impulse);
+                    break;
+                }
+            case 2:
+                {
+                    GameObject bullet = Instantiate(laserBullet, pointOfOrigin.position + pointOfOrigin.right * 0.75f, pointOfOrigin.rotation, null);
+                    Rigidbody rb = bullet.GetComponent<Rigidbody>();
+                    rb.AddForce(bullet.transform.forward * rb.mass * laserSpeed, ForceMode.Impulse);
+
+                    bullet = Instantiate(laserBullet, pointOfOrigin.position + pointOfOrigin.right * -0.75f, pointOfOrigin.rotation, null);
+                    rb = bullet.GetComponent<Rigidbody>();
+                    rb.AddForce(bullet.transform.forward * rb.mass * laserSpeed, ForceMode.Impulse);
+
+                    break;
+                }
+            case 3:
+                {
+                    GameObject bullet = Instantiate(laserBullet, pointOfOrigin.position, pointOfOrigin.rotation, null);
+                    Rigidbody rb = bullet.GetComponent<Rigidbody>();
+                    rb.AddForce(bullet.transform.forward * rb.mass * laserSpeed, ForceMode.Impulse);
+
+                    bullet = Instantiate(laserBullet, pointOfOrigin.position, pointOfOrigin.rotation, null);
+                    bullet.transform.Rotate(0f, 5f, 0f, Space.Self);
+                    rb = bullet.GetComponent<Rigidbody>();
+                    rb.AddForce(bullet.transform.forward * rb.mass * laserSpeed, ForceMode.Impulse);
+
+                    bullet = Instantiate(laserBullet, pointOfOrigin.position, pointOfOrigin.rotation, null);
+                    bullet.transform.Rotate(0f, -5f, 0f, Space.Self);
+                    rb = bullet.GetComponent<Rigidbody>();
+                    rb.AddForce(bullet.transform.forward * rb.mass * laserSpeed, ForceMode.Impulse);
+
+                    break;
+                }
+            case 4:
+                {
+                    GameObject bullet = Instantiate(laserBullet, pointOfOrigin.position + pointOfOrigin.right * 0.75f, pointOfOrigin.rotation, null);
+                    Rigidbody rb = bullet.GetComponent<Rigidbody>();
+                    rb.AddForce(bullet.transform.forward * rb.mass * laserSpeed, ForceMode.Impulse);
+
+                    bullet = Instantiate(laserBullet, pointOfOrigin.position + pointOfOrigin.right * -0.75f, pointOfOrigin.rotation, null);
+                    rb = bullet.GetComponent<Rigidbody>();
+                    rb.AddForce(bullet.transform.forward * rb.mass * laserSpeed, ForceMode.Impulse);
+
+                    
+                    bullet = Instantiate(laserBullet, pointOfOrigin.position + pointOfOrigin.right * 0.75f, pointOfOrigin.rotation, null);
+                    bullet.transform.Rotate(0f, 5f, 0f, Space.Self);
+                    rb = bullet.GetComponent<Rigidbody>();
+                    rb.AddForce(bullet.transform.forward * rb.mass * laserSpeed, ForceMode.Impulse);
+                    
+                    bullet = Instantiate(laserBullet, pointOfOrigin.position + pointOfOrigin.right * -0.75f, pointOfOrigin.rotation, null);
+                    bullet.transform.Rotate(0f, -5f, 0f, Space.Self);
+                    rb = bullet.GetComponent<Rigidbody>();
+                    rb.AddForce(bullet.transform.forward * rb.mass * laserSpeed, ForceMode.Impulse);
+                    
+                    break;
+                }
+            case 5:
+                {
+                    GameObject bullet = Instantiate(laserBullet, pointOfOrigin.position, pointOfOrigin.rotation, null);
+                    Rigidbody rb = bullet.GetComponent<Rigidbody>();
+                    rb.AddForce(bullet.transform.forward * rb.mass * laserSpeed, ForceMode.Impulse);
+
+                    bullet = Instantiate(laserBullet, pointOfOrigin.position + pointOfOrigin.right * 0.75f, pointOfOrigin.rotation, null);
+                    bullet.transform.Rotate(0f, 5f, 0f, Space.Self);
+                    rb = bullet.GetComponent<Rigidbody>();
+                    rb.AddForce(bullet.transform.forward * rb.mass * laserSpeed, ForceMode.Impulse);
+
+                    bullet = Instantiate(laserBullet, pointOfOrigin.position + pointOfOrigin.right * -0.75f, pointOfOrigin.rotation, null);
+                    bullet.transform.Rotate(0f, -5f, 0f, Space.Self);
+                    rb = bullet.GetComponent<Rigidbody>();
+                    rb.AddForce(bullet.transform.forward * rb.mass * laserSpeed, ForceMode.Impulse);
+
+                    bullet = Instantiate(laserBullet, pointOfOrigin.position, pointOfOrigin.rotation, null);
+                    bullet.transform.Rotate(0f, 2.5f, 0f, Space.Self);
+                    rb = bullet.GetComponent<Rigidbody>();
+                    rb.AddForce(bullet.transform.forward * rb.mass * laserSpeed, ForceMode.Impulse);
+
+                    bullet = Instantiate(laserBullet, pointOfOrigin.position, pointOfOrigin.rotation, null);
+                    bullet.transform.Rotate(0f, -2.5f, 0f, Space.Self);
+                    rb = bullet.GetComponent<Rigidbody>();
+                    rb.AddForce(bullet.transform.forward * rb.mass * laserSpeed, ForceMode.Impulse);
+                    break;
+                }
+        }
+            
+        pointOfOrigin.gameObject.GetComponent<AudioSource>().Play();
     }
 
     void FireMissile()
@@ -220,7 +310,11 @@ public class Shooting : MonoBehaviour
     public void AddMissile()
     {
         missileAmount++;
-        Debug.Log(missileAmount);
         brojRaketa.text = "X " + missileAmount;
+    }
+
+    public void LaserLevelUp()
+    {
+        laserLevel++;
     }
 }

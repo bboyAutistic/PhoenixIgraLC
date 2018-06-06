@@ -56,7 +56,7 @@ public class Missile : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Player")) {
 			other.gameObject.GetComponent<PlayerHealth> ().TakeDamage (damage);
 		} else if (other.gameObject.CompareTag ("Enemy")) {
-			other.gameObject.GetComponent<EnemyHealth> ().TakeDamage (damage);
+			other.gameObject.GetComponentInChildren<EnemyHealth> ().TakeDamage (damage);
 		}
 
 		Destroy (this.gameObject);

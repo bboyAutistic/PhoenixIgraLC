@@ -52,5 +52,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfAsteroidsOnAnAxis: 5
-  gridSpacing: 50
-  asteroid: {fileID: 1156274708955996, guid: 047b99cea89baf4458fb1cc195073827, type: 2}
+  gridSpacing: 75
+  asteroid: {fileID: 1156274708955996, guid: 18b5c8ebaefd2524fb521055044ffaf3, type: 2}

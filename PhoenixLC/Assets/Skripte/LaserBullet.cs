@@ -16,7 +16,7 @@ public class LaserBullet : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other){
 		if (other.gameObject.tag == "Enemy") {
-			other.gameObject.GetComponent<EnemyHealth> ().TakeDamage (damage);
+			other.gameObject.GetComponentInChildren<EnemyHealth> ().TakeDamage (damage);
 			Destroy (gameObject);
 		} else if (other.gameObject.tag == "Player") {
 			other.gameObject.GetComponent<PlayerHealth> ().TakeDamage (damage);

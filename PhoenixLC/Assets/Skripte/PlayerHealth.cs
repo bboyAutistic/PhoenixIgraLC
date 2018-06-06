@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour {
@@ -25,7 +26,12 @@ public class PlayerHealth : MonoBehaviour {
 
 	float shieldBeforeHit;
 
-	void Awake(){
+    int lives = 1;
+    Vector3 respawnPosition;
+    Quaternion respawnRotation;
+    public TextMeshProUGUI brojZivota;
+
+    void Awake(){
 		shield = GameObject.Find("Shield");
 		//izbacuje neki error ali radi
 		//shield = transform.Find("Shield").gameObject;
@@ -37,6 +43,8 @@ public class PlayerHealth : MonoBehaviour {
 	void Start () {
 		currentHealth = maxHealth;
 		currentShield = maxShield;
+        respawnPosition = transform.position;
+        respawnRotation = transform.rotation;
 
 		shield.SetActive(false);
 		InvokeRepeating ("RegenerateShield", shieldRegenTime, shieldRegenTime);
@@ -99,7 +107,16 @@ public class PlayerHealth : MonoBehaviour {
 		Instantiate (deathExplosion, transform.position, transform.rotation);
 		this.gameObject.SetActive (false);
 
-		Invoke ("GameOver", 2f);
+        if(lives <= 0)
+        {
+            Invoke("GameOver", 2f);
+        }
+        else
+        {
+            Invoke("Respawn", 5f);
+        }
+        
+		
 
 		//Debug.Log("WE ARE AT 0 HEALTH");
 
@@ -149,5 +166,27 @@ public class PlayerHealth : MonoBehaviour {
             currentShield = maxShield;
 
         UpdateShieldBar(currentShield / maxShield);
+    }
+
+    public void Respawn()
+    {
+        lives--;
+        brojZivota.text = "X " + lives;
+        transform.position = respawnPosition;
+        transform.rotation = respawnRotation;
+        currentHealth = maxHealth;
+        UpdateHealthBar(1);
+        currentShield = maxShield;
+        UpdateShieldBar(1);
+        InvokeRepeating("RegenerateShield", shieldRegenTime, shieldRegenTime);
+        this.gameObject.SetActive(true);
+        GetComponent<Shooting>().laserLevel = 1;
+        isDead = false;
+    }
+
+    public void AddLife()
+    {
+        lives++;
+        brojZivota.text = "X " + lives;
     }
 }

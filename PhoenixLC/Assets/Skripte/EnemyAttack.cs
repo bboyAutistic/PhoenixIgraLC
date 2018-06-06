@@ -8,6 +8,7 @@ public class EnemyAttack : MonoBehaviour {
 	public GameObject laserBullet;
 	public float rateOfFire = 300f;
 	public float coneOfFire = 10f;
+    public float laserSpeed = 300f;
 
 	Transform target;
 	Vector3 lineToTarget;
@@ -50,8 +51,6 @@ public class EnemyAttack : MonoBehaviour {
                 {
                     return true;
                 }
-                else
-                    Debug.Log(hit.collider.name);
             }
 		}
 
@@ -62,6 +61,8 @@ public class EnemyAttack : MonoBehaviour {
 	{
 		GameObject bullet = Instantiate (laserBullet, pointOfOrigin.position, pointOfOrigin.rotation, null);
 		Rigidbody rb = bullet.GetComponent<Rigidbody> ();
-		rb.AddForce (lineToTarget.normalized * rb.mass * 300, ForceMode.Impulse);
+		rb.AddForce (lineToTarget.normalized * rb.mass * laserSpeed, ForceMode.Impulse);
+
+        pointOfOrigin.gameObject.GetComponent<AudioSource>().Play();
 	}
 }

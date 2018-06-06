@@ -23,5 +23,7 @@ public class EnemyHealth : MonoBehaviour {
 	void Death(){
 		Instantiate (deathExplosion, transform.position, transform.rotation);
 		Destroy (transform.root.gameObject);
+
+        GameObject.Find("ScoreSistem").GetComponent<ScoreSistem>().UpdateScore(40);
 	}
 }

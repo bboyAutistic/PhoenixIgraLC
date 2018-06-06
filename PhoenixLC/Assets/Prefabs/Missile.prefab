@@ -338,7 +338,7 @@ MonoBehaviour:
   turnSpeed: 1
   timeOfFlight: 10
   damage: 100
-  explosion: {fileID: 1977348621631130, guid: 874a2db5ed3c55544838af2e03b0ef1c, type: 2}
+  explosion: {fileID: 1977348621631130, guid: 9156e3a9e01ca5c4e9e596ba9da2eb3b, type: 2}
   target: {fileID: 0}
 --- !u!136 &136842562461967414
 CapsuleCollider:

@@ -13,7 +13,7 @@ public class DeathExplosion : MonoBehaviour {
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > 2f)
+        if (timer > 5f)
             Destroy(this.gameObject);
     }
 }
