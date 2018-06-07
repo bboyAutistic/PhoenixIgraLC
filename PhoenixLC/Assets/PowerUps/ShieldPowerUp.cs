@@ -17,7 +17,8 @@ public class ShieldPowerUp : MonoBehaviour {
         {
             if (other.GetComponent<PlayerHealth>().getShield() < other.GetComponent<PlayerHealth>().maxShield)
             {
-                other.GetComponent<PlayerHealth>().RecoverShield(100);
+                other.GetComponent<PlayerHealth>().RecoverShield();
+                GameObject.Find("ScoreSistem").GetComponent<ScoreSistem>().UpdateScore(10);
                 Destroy(gameObject);
             }
         }

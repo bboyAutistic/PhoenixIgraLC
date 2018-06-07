@@ -150,20 +150,17 @@ public class PlayerHealth : MonoBehaviour {
 		shieldBar.sizeDelta = new Vector2 (maxWidthShield * percent, 10f);
 	}
 
-    public void Repair(float amount)
+    public void Repair()
     {
-        currentHealth += amount;
-        if (currentHealth > maxHealth)
-            currentHealth = maxHealth;
-
-        UpdateHealthBar(currentHealth / maxHealth);
+        currentHealth = maxHealth;
+        UpdateHealthBar(1);
+        lives++;
+        brojZivota.text = "X " + lives;
     }
 
-    public void RecoverShield(float amount)
+    public void RecoverShield()
     {
-        currentShield += amount;
-        if (currentShield > maxShield)
-            currentShield = maxShield;
+        currentShield = maxShield;
 
         UpdateShieldBar(currentShield / maxShield);
     }
@@ -181,12 +178,7 @@ public class PlayerHealth : MonoBehaviour {
         InvokeRepeating("RegenerateShield", shieldRegenTime, shieldRegenTime);
         this.gameObject.SetActive(true);
         GetComponent<Shooting>().laserLevel = 1;
+        GameObject.Find("ScoreSistem").GetComponent<ScoreSistem>().UpdateScore(-100);
         isDead = false;
-    }
-
-    public void AddLife()
-    {
-        lives++;
-        brojZivota.text = "X " + lives;
     }
 }

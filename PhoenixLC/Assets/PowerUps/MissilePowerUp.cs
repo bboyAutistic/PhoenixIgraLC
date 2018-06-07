@@ -7,8 +7,6 @@ public class MissilePowerUp : MonoBehaviour {
 
     public float rotateSpeed = 10f;
     
-    
-
     void Update()
     {
         transform.Rotate(rotateSpeed * Time.deltaTime,0f, 0f);
@@ -19,6 +17,7 @@ public class MissilePowerUp : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             other.GetComponent<Shooting>().AddMissile();
+            GameObject.Find("ScoreSistem").GetComponent<ScoreSistem>().UpdateScore(10);
             Destroy(gameObject);
 
         }

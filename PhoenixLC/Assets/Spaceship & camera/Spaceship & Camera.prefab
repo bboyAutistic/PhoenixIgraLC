@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4720207769382496}
   - component: {fileID: 135149976343308988}
   - component: {fileID: 114763092811088054}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MissileLockCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1044,10 +1044,12 @@ MonoBehaviour:
     type: 2}
   rateOfFire: 300
   pointOfOrigin: {fileID: 4475577032991260}
+  laserLevel: 1
+  laserSpeed: 300
   missile: {fileID: 1643808815834822, guid: de0e169fbc5e3044e8565a1a9835d805, type: 2}
   lockOnRange: 300
   missileReloadTime: 5
-  lockOnTime: 2
+  lockOnTime: 1
   targetLockUI: {fileID: 0}
   brojRaketa: {fileID: 0}
 --- !u!114 &114763092811088054

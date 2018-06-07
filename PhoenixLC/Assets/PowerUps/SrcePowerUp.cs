@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SrcePowerUp : MonoBehaviour {
 
-    public float heal=20f;
     public float rotateSpeed=10f;
 
     void Update()
@@ -16,11 +15,9 @@ public class SrcePowerUp : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            if(other.GetComponent<PlayerHealth>().getHealth() < other.GetComponent<PlayerHealth>().maxHealth)
-            {
-                other.GetComponent<PlayerHealth>().Repair(heal);
-                Destroy(gameObject);
-            }
+            other.GetComponent<PlayerHealth>().Repair();
+            GameObject.Find("ScoreSistem").GetComponent<ScoreSistem>().UpdateScore(10);
+            Destroy(gameObject);
         }
     }
 

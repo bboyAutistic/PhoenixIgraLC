@@ -546,6 +546,11 @@ MonoBehaviour:
   maxHealth: 100
   deathExplosion: {fileID: 1977348621631130, guid: 9156e3a9e01ca5c4e9e596ba9da2eb3b,
     type: 2}
+  powerUps:
+  - {fileID: 1880048426083164, guid: 8cf3f2eda4270bf459e6f63184b155fe, type: 2}
+  - {fileID: 1794819463990742, guid: 91ae4677d89b21d46b2757970b20a003, type: 2}
+  - {fileID: 1718925518429920, guid: 98997d61eed201f47baf33e0e7677578, type: 2}
+  - {fileID: 1488425358269950, guid: 928cb32693f37fc4c85b99a2beb3a1fd, type: 2}
 --- !u!114 &114323743334250792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -562,6 +567,7 @@ MonoBehaviour:
     type: 2}
   rateOfFire: 150
   coneOfFire: 10
+  laserSpeed: 300
 --- !u!114 &114417404830827156
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -16,6 +16,7 @@ public class LaserPowerUp : MonoBehaviour {
         {
             if(other.GetComponent<Shooting>().laserLevel < 5)
             other.GetComponent<Shooting>().LaserLevelUp();
+            GameObject.Find("ScoreSistem").GetComponent<ScoreSistem>().UpdateScore(10);
             Destroy(gameObject);
         }
     }

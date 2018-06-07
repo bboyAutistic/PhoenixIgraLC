@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/lv0.unity
     guid: ce5301c678891d945ac4de2124888680
+  - enabled: 1
+    path: Assets/Multiplayer/MP01.unity
+    guid: b032b6fc4ca3a4d4984660d0f0fd3af0
   m_configObjects: {}

@@ -24,7 +24,7 @@ public class Shooting : MonoBehaviour
     public float lockOnTime = 5f;
 
     //missile private variables
-    float missileAmount = 0f;
+    float missileAmount = 1f;
     GameObject target = null;
     int lockTarget = 0;
     float nearestTarget;
