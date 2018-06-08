@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EnemySpawner : MonoBehaviour {
 
@@ -10,12 +11,18 @@ public class EnemySpawner : MonoBehaviour {
     public int increment = 5;
     public int bossWave = 20;
 
+    public TextMeshProUGUI dialogText;
+    public GameObject winScreen;
+
     int nextWave;
     bool spawning = false;
 
     public void Start()
     {
+        Time.timeScale = 1;
         nextWave = firstWave;
+        spawning = true;
+        StartCoroutine(DialogText());
     }
 
     public void Update()
@@ -25,11 +32,32 @@ public class EnemySpawner : MonoBehaviour {
             spawning = true;
             StartCoroutine(Spawn());
         }
+        if (GameObject.FindGameObjectWithTag("Enemy") == null && !spawning && nextWave > bossWave)
+        {
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
+            winScreen.SetActive(true);
+            spawning = true;
+            
+        }
+    }
+
+    IEnumerator DialogText()
+    {
+        dialogText.text = "Welcome to the Phoenix asteroid ring";
+        yield return new WaitForSeconds(4);
+        dialogText.text = "your objective is to defite the evil boss os the phoenix gang";
+        yield return new WaitForSeconds(6);
+        dialogText.text = "prepare yourself the first wave of Birdships are comming your way";
+        spawning = false;
+        yield return new WaitForSeconds(6);
+        dialogText.text = "";
     }
 
     IEnumerator Spawn()
     {
-        yield return new WaitForSeconds(5);
+
+        yield return new WaitForSeconds(8);
         SpawnEnemies(nextWave);
     }
 

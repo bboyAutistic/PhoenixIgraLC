@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Multiplayer/MP01.unity
     guid: b032b6fc4ca3a4d4984660d0f0fd3af0
+  - enabled: 1
+    path: Assets/RETRO/RETRO.unity
+    guid: 8011e14e1ef146b4db5b09c58107be06
   m_configObjects: {}

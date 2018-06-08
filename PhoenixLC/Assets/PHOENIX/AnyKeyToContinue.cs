@@ -10,6 +10,7 @@ public class AnyKeyToContinue : MonoBehaviour
         if (Input.anyKey)
         {
             SceneManager.LoadScene("MainMenu");
+            FindObjectOfType<AudioManager>().Play("Totally");
         }
 
 

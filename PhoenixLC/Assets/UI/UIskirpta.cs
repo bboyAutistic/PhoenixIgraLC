@@ -8,7 +8,7 @@ public class UIskirpta : MonoBehaviour {
 
 	public void PlayGame(string levelName)
 	{
-        GameObject.Find("MP").GetComponent<NetworkManager>().StopHost();
+       // GameObject.Find("MP").GetComponent<NetworkManager>().StopHost();
 		SceneManager.LoadScene(levelName);
 	}
 	public void QuitGame()

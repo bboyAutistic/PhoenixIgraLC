@@ -115,8 +115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddfa2eb418d15ba4fbc366df422595fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  heal: 20
   rotateSpeed: 10
 --- !u!135 &135831969817731250
 SphereCollider:
@@ -128,5 +126,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.95
+  m_Radius: 7
   m_Center: {x: 0, y: 0.223907, z: 0}

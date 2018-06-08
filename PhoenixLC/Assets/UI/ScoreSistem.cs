@@ -12,7 +12,7 @@ public class ScoreSistem : MonoBehaviour {
     private void Start()
     {
         scoreText.text = "Score: " + points;
-        highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        highScore.text ="High Score: "+ PlayerPrefs.GetInt("HighScore", 0).ToString();
         UpdateScore(points);
     }
    
