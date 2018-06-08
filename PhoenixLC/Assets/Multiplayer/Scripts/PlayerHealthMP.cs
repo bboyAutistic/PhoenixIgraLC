@@ -196,11 +196,13 @@ public class PlayerHealthMP : NetworkBehaviour {
     void OnChangeHealth(float health)
     {
         UpdateHealthBar(health / maxHealth);
+        currentHealth = health;
     }
 
     void OnChangeShield(float shield)
     {
         UpdateShieldBar(shield / maxShield);
+        currentShield = shield;
     }
 
     [ClientRpc]
@@ -212,6 +214,7 @@ public class PlayerHealthMP : NetworkBehaviour {
     void OnChangeLives(int amount)
     {
         brojZivota.text = "X " + amount;
+        lives = amount;
     }
 
     [ClientRpc]

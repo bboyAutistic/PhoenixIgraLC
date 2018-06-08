@@ -88,13 +88,11 @@ public class ShootingMP : NetworkBehaviour {
         {
             missileReloadTimer = 0f;
             CmdFireMissile();
-            missileAmount--;
         }
         else if (Input.GetKeyDown(KeyCode.Mouse1) && target == null && missileReloadTimer > missileReloadTime && missileAmount > 0)
         {
             missileReloadTimer = 0f;
-            NetworkServer.Spawn(Instantiate(missile, transform.position - transform.up, transform.rotation, null));
-            missileAmount--;
+            CmdFireMissileNoTarget();
         }
     }
 
@@ -215,6 +213,14 @@ public class ShootingMP : NetworkBehaviour {
         GameObject firedMissile = Instantiate(missile, transform.position - transform.up, transform.rotation, null);
         firedMissile.GetComponent<MissileMP>().target = target;
         NetworkServer.Spawn(firedMissile);
+        missileAmount--;
+    }
+
+    [Command]
+    void CmdFireMissileNoTarget()
+    {
+        NetworkServer.Spawn(Instantiate(missile, transform.position - transform.up, transform.rotation, null));
+        missileAmount--;
     }
 
     public void LockOnSystem(Collider other)
@@ -315,6 +321,7 @@ public class ShootingMP : NetworkBehaviour {
     void OnMissileAmountChange(int amount)
     {
         brojRaketa.text = "X " + amount;
+        missileAmount = amount;
     }
 
     public void LaserLevelUp()

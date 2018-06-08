@@ -6,6 +6,7 @@ public class ESCoptions : MonoBehaviour {
 
     public GameObject pauseMenu;
     public bool lockCursorOnStart = true;
+    bool menuOpen = false;
 
     void Start()
     {
@@ -19,11 +20,16 @@ public class ESCoptions : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !menuOpen)
         {
             Cursor.lockState = CursorLockMode.None;
             pauseMenu.SetActive(true);
             Time.timeScale = 0;
+            menuOpen = true;
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape) && menuOpen)
+        {
+            Resume();
         }
 
     }
@@ -32,5 +38,6 @@ public class ESCoptions : MonoBehaviour {
         pauseMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
+        menuOpen = false;
     }
 }
