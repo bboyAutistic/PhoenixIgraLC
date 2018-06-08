@@ -17,6 +17,10 @@ public class SpawnerMP : NetworkBehaviour {
 
     public void Start()
     {
+        if (!isServer)
+        {
+            gameObject.SetActive(false);
+        }
         nextWave = firstWave;
     }
 
@@ -40,6 +44,9 @@ public class SpawnerMP : NetworkBehaviour {
 
     public void SpawnEnemies(int amount)
     {
+        if (!isServer)
+            return;
+
         int rows = Mathf.CeilToInt(amount / 5);
         float Yposition = transform.position.y + ( 15 * (rows - 1));
         float Xposition = transform.position.x + 60;

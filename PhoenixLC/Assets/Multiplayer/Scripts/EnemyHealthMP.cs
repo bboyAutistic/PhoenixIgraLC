@@ -18,6 +18,9 @@ public class EnemyHealthMP : NetworkBehaviour {
 
     public void TakeDamage(float dmg)
     {
+        if(!isServer)
+            return;
+
         currentHealth -= dmg;
 
         if (currentHealth <= 0)

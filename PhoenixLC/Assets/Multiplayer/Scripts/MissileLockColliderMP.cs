@@ -14,7 +14,7 @@ public class MissileLockColliderMP : MonoBehaviour {
 
     void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Enemy") || other.CompareTag("Player"))
+        if (other.CompareTag("Enemy"))
             player.LockOnSystem(other);
     }
 }
