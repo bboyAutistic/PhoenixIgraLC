@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using TMPro;
 
 public class SpawnerMP : NetworkBehaviour {
 
@@ -15,13 +16,18 @@ public class SpawnerMP : NetworkBehaviour {
     int nextWave;
     bool spawning = false;
 
+    public TextMeshProUGUI dialogText;
+    public GameObject winScreen;
+
     public void Start()
     {
-        if (!isServer)
-        {
-            gameObject.SetActive(false);
-        }
+        spawning = true;
+        StartCoroutine(DialogText());
+        
         nextWave = firstWave;
+        
+        
+
     }
 
     public void Update()
@@ -34,14 +40,43 @@ public class SpawnerMP : NetworkBehaviour {
             spawning = true;
             StartCoroutine(Spawn());
         }
+        if (GameObject.FindGameObjectWithTag("Enemy") == null && !spawning && nextWave > bossWave)
+        {
+
+            spawning = true;
+            StartCoroutine(WinDilej());
+
+        }
     }
 
     IEnumerator Spawn()
     {
-        yield return new WaitForSeconds(5);
-        SpawnEnemies(nextWave);
-    }
+        yield return new WaitForSeconds(2);
+        if (nextWave == bossWave)
+        {
+            dialogText.text = "Boss is comming and he is bringing birdup";
 
+        }
+        else
+        {
+            dialogText.text = "prepare yourself a wave of Birdships is comming your way";
+        }
+
+        yield return new WaitForSeconds(8);
+        dialogText.text = "";
+        SpawnEnemies(nextWave);
+        
+    }
+    IEnumerator DialogText()
+    {
+        yield return new WaitForSeconds(10);
+        dialogText.text = "Welcome to the Phoenix asteroid field";
+        yield return new WaitForSeconds(4);
+        dialogText.text = "your objective is to defeat the evil boss of the phoenix gang";
+        yield return new WaitForSeconds(6);
+        spawning = false;
+
+    }
     public void SpawnEnemies(int amount)
     {
         if (!isServer)
@@ -70,5 +105,13 @@ public class SpawnerMP : NetworkBehaviour {
 
         nextWave += increment;
         spawning = false;
+    }
+    IEnumerator WinDilej()
+    {
+
+        yield return new WaitForSeconds(2);
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
+        winScreen.SetActive(true);
     }
 }

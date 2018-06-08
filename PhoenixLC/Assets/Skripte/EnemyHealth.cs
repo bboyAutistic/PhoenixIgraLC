@@ -26,7 +26,7 @@ public class EnemyHealth : MonoBehaviour {
         GameObject.Find("ScoreSistem").GetComponent<ScoreSistem>().UpdateScore(40);
         Destroy (transform.root.gameObject);
         
-        if(Random.Range(0,99) < 20)
+        if(Random.Range(1,100) < 35)
         {
             Instantiate(powerUps[Random.Range(0, powerUps.Count - 1)], transform.position, transform.rotation, null);
         }

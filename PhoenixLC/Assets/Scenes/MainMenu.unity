@@ -270,7 +270,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh50096
+  m_Name: pb_Mesh21818
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -669,7 +669,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1396753484271028, guid: fb21f6a4a75470d4c937f5a6b9be449a, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb21f6a4a75470d4c937f5a6b9be449a, type: 2}
@@ -836,7 +836,7 @@ MonoBehaviour:
   - {fileID: 1967404578339482, guid: 5042bbf00df63ba45b5000b94ee81d30, type: 2}
   - {fileID: 1309610688696584, guid: 1bf583f3864e6e742ab3eff19b993496, type: 2}
   - {fileID: 1580274339525394, guid: a79f958d173ec1947a19bfd2bb00f933, type: 2}
-  m_CustomConfig: 0
+  m_CustomConfig: 1
   m_MaxConnections: 4
   m_ConnectionConfig:
     m_PacketSize: 1440
@@ -957,16 +957,6 @@ Prefab:
     - target: {fileID: 4698545995563462, guid: 0ece402ae2296394bac3d4a796fa8278, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114386257293213984, guid: 0ece402ae2296394bac3d4a796fa8278,
-        type: 2}
-      propertyPath: sounds.Array.data[0].volume
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114386257293213984, guid: 0ece402ae2296394bac3d4a796fa8278,
-        type: 2}
-      propertyPath: sounds.Array.data[1].volume
-      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ece402ae2296394bac3d4a796fa8278, type: 2}

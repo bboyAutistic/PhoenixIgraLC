@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
         //strafing
-        float strafe = Input.GetAxis("Horizontal");
+        float strafe = Input.GetAxis("Bank");
         if (strafe != 0)
         {
             rb.AddForce(strafe * transform.right * moveSpeed * 0.25f, ForceMode.Impulse);
@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour {
 		//rotacija broda
 		float x = Input.GetAxis ("Mouse X");
 		float y = Input.GetAxis ("Mouse Y");
-        float z = Input.GetAxis ("Bank");
+        float z = Input.GetAxis ("Horizontal");
             
 		horizontalRotation = x * turnSpeed;
 		verticalRotation = y * turnSpeed;

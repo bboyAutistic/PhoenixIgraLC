@@ -15,7 +15,7 @@ public class RetroGameManager : MonoBehaviour {
 
     private void Start()
     {
-        StartCoroutine(StartConflict());
+        
         Time.timeScale = 1;
         FindObjectOfType<AudioManager>().Play("Elise");
     }
@@ -41,7 +41,7 @@ public class RetroGameManager : MonoBehaviour {
 
         if(currentWave < wavesOfEnemys.Count)
         {
-            dialogText.text = "get ready the a wave of enemys is comming your way";
+            dialogText.text = "get ready a wave of enemies is comming your way";
             yield return new WaitForSeconds(12f);
         }
         else{

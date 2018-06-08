@@ -32,7 +32,7 @@ public class RetroPlayerMovment : MonoBehaviour {
         float side = Input.GetAxis("Horizontal");
         if (side != 0)
         {
-            rb.AddForce(side * transform.right * moveSpeed, ForceMode.Impulse);
+            rb.AddForce(side * transform.right * moveSpeed*2, ForceMode.Impulse);
         }
 
        

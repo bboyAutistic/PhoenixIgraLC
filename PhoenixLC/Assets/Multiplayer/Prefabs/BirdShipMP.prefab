@@ -569,9 +569,9 @@ MonoBehaviour:
   pointOfOrigin: {fileID: 4564797224670430}
   laserBullet: {fileID: 1623535655713766, guid: d4e5b41f1c8505047b29db1a34fcaf11,
     type: 2}
-  rateOfFire: 150
+  rateOfFire: 75
   coneOfFire: 10
-  laserSpeed: 300
+  laserSpeed: 200
 --- !u!114 &114538375138786324
 MonoBehaviour:
   m_ObjectHideFlags: 1

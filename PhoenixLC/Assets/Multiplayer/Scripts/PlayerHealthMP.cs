@@ -115,8 +115,8 @@ public class PlayerHealthMP : NetworkBehaviour {
 
         if (lives <= 0)
         {
-            //needs rework
-            Invoke("RpcGameOver", 2f);
+
+            RpcGameOver();
         }
         else
         {
@@ -147,9 +147,14 @@ public class PlayerHealthMP : NetworkBehaviour {
     [ClientRpc]
     void RpcGameOver()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         Instantiate(gameOverScreen, null);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
     }
 
     public void UpdateHealthBar(float percent)

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 135389150181880100}
   - component: {fileID: 96522454189874328}
   - component: {fileID: 114150955855801628}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: LaserBulletEnemyRetro
   m_TagString: Untagged
   m_Icon: {fileID: 0}

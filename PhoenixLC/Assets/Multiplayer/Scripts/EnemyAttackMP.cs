@@ -38,7 +38,7 @@ public class EnemyAttackMP : NetworkBehaviour {
         
         if (CanHit())
         {
-            if (reloadTimer >= 60 / rateOfFire)
+            if (reloadTimer >= 60 / Random.Range(rateOfFire-50,rateOfFire+50))
             {
                 reloadTimer = 0;
                 FireEnemyLaser();

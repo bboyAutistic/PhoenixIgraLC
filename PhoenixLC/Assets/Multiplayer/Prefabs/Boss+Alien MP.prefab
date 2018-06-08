@@ -56715,7 +56715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9ecfad0a0b7d3439d46035d8621302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 5000
   deathExplosion: {fileID: 1011070371476804, guid: 4513c5298ecfe284cbb9407c33826d0c,
     type: 2}
   powerUps: []
@@ -56733,7 +56733,7 @@ MonoBehaviour:
   pointOfOrigin: {fileID: 4166071042780652}
   laserBullet: {fileID: 1623535655713766, guid: d4e5b41f1c8505047b29db1a34fcaf11,
     type: 2}
-  rateOfFire: 50
+  rateOfFire: 200
   coneOfFire: 60
   laserSpeed: 300
 --- !u!114 &114219459260761750
@@ -56750,7 +56750,7 @@ MonoBehaviour:
   pointOfOrigin: {fileID: 4709758260355856}
   laserBullet: {fileID: 1623535655713766, guid: d4e5b41f1c8505047b29db1a34fcaf11,
     type: 2}
-  rateOfFire: 50
+  rateOfFire: 200
   coneOfFire: 60
   laserSpeed: 300
 --- !u!114 &114248265533722066
@@ -56767,7 +56767,7 @@ MonoBehaviour:
   pointOfOrigin: {fileID: 4090796120795724}
   laserBullet: {fileID: 1623535655713766, guid: d4e5b41f1c8505047b29db1a34fcaf11,
     type: 2}
-  rateOfFire: 50
+  rateOfFire: 200
   coneOfFire: 60
   laserSpeed: 300
 --- !u!114 &114324056103393408
@@ -56840,7 +56840,7 @@ MonoBehaviour:
   pointOfOrigin: {fileID: 4285140884772852}
   laserBullet: {fileID: 1623535655713766, guid: d4e5b41f1c8505047b29db1a34fcaf11,
     type: 2}
-  rateOfFire: 50
+  rateOfFire: 200
   coneOfFire: 60
   laserSpeed: 300
 --- !u!114 &114872774959953038

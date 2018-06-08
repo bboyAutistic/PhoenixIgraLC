@@ -13,6 +13,7 @@ public class ESCoptions : MonoBehaviour {
         if (lockCursorOnStart)
         {
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
     }
@@ -23,6 +24,7 @@ public class ESCoptions : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape) && !menuOpen)
         {
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             pauseMenu.SetActive(true);
             Time.timeScale = 0;
             menuOpen = true;
@@ -37,6 +39,7 @@ public class ESCoptions : MonoBehaviour {
     {
         pauseMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         Time.timeScale = 1;
         menuOpen = false;
     }

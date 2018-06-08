@@ -10,6 +10,7 @@ public class ESCOptionsMP : MonoBehaviour {
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
 
@@ -18,7 +19,9 @@ public class ESCOptionsMP : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape) && !menuOpen)
         {
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             pauseMenu.SetActive(true);
+            menuOpen = true;
         }
         else if(Input.GetKeyDown(KeyCode.Escape) && menuOpen)
         {
@@ -30,6 +33,7 @@ public class ESCOptionsMP : MonoBehaviour {
     {
         pauseMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         menuOpen = false;
     }
 }

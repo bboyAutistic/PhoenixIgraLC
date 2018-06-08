@@ -32,7 +32,7 @@ public class EnemyHealthMP : NetworkBehaviour {
         NetworkServer.Spawn(Instantiate(deathExplosion, transform.position, transform.rotation));
         Destroy(transform.root.gameObject);
 
-        if (Random.Range(0, 99) < 20)
+        if (Random.Range(1, 100) < 35)
         {
             if(powerUps.Count != 0)
             {

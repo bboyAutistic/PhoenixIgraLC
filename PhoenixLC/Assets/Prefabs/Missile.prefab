@@ -335,9 +335,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  turnSpeed: 1
+  turnSpeed: 3
   timeOfFlight: 10
-  damage: 100
+  damage: 350
   explosion: {fileID: 1977348621631130, guid: 9156e3a9e01ca5c4e9e596ba9da2eb3b, type: 2}
   target: {fileID: 0}
 --- !u!136 &136842562461967414

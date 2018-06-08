@@ -34,31 +34,49 @@ public class EnemySpawner : MonoBehaviour {
         }
         if (GameObject.FindGameObjectWithTag("Enemy") == null && !spawning && nextWave > bossWave)
         {
-            Time.timeScale = 0;
-            Cursor.lockState = CursorLockMode.None;
-            winScreen.SetActive(true);
-            spawning = true;
             
+            spawning = true;
+            StartCoroutine(WinDilej());
+
         }
+    }
+    IEnumerator WinDilej()
+    {
+        
+        yield return new WaitForSeconds(2);
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
+        winScreen.SetActive(true);
     }
 
     IEnumerator DialogText()
     {
-        dialogText.text = "Welcome to the Phoenix asteroid ring";
+        dialogText.text = "Welcome to the Phoenix asteroid field";
         yield return new WaitForSeconds(4);
-        dialogText.text = "your objective is to defite the evil boss os the phoenix gang";
+        dialogText.text = "your objective is to defeat the evil boss of the phoenix gang";
         yield return new WaitForSeconds(6);
-        dialogText.text = "prepare yourself the first wave of Birdships are comming your way";
         spawning = false;
-        yield return new WaitForSeconds(6);
-        dialogText.text = "";
+        
     }
 
     IEnumerator Spawn()
     {
-
+        yield return new WaitForSeconds(2);
+        if (nextWave==bossWave)
+        {
+            dialogText.text = "Boss is comming and he is bringing birdup";
+            
+        }
+        else
+        {
+            dialogText.text = "prepare yourself a wave of Birdships is comming your way";
+        }
+       
         yield return new WaitForSeconds(8);
+        dialogText.text = "";
         SpawnEnemies(nextWave);
+
+
     }
 
     public void SpawnEnemies(int amount)
